@@ -1,0 +1,32 @@
+SUMMARY:=================================================
+
+Scare off predators (wolves, coyotes, etc) from harming your livestock by employing/using guardian llamas and alpacas!!! 
+
+Many farmers use llamas and alpacas to protect their livestock because they are protective and very aware of their surroundings. If a predator approaches they make a loud call that can alert the owner. Sometimes they may chase or kick the predator as well.
+
+
+GAMEPLAY:================================================
+possible gameplay route. may be changed.
+
+Begin the game with a basic llama and x amount of currency. All llamas/alpacas hae speculations- the basic one can protect up to 10 (number may change- gotta research) livestock.
+
+Purchase livestock with currency. Livestock may include sheep, turkeys, goats, etc.
+
+Set up your herd outside, tap "OK"!
+
+Close the app and check back later.
+
+Come back and check the app and see if your llama/alpaca was able to ward off any predators.
+- earn currency for every predator that was warded off
+- lose some livestock (or potentially your llama!) if the warding was unsuccessful.
+
+Use earned currency to buy more livestock and better llamas/alpacas with different specs and cute clothes. Expand your field and strengthen your fences too.
+
+
+LOGISTICS:================================================
+*kind of like neko atsume in the sense that you set up your place and wait/come back to see what happened.*
+
+App data will be stored in the device with SQL.
+
+Predator attacks and successes will be probability based.
+- gotta figure out how to let that run in the background or have that be calculated while the app is opening again
