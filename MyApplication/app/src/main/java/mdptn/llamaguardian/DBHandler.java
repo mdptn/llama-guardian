@@ -14,55 +14,52 @@ public class DBHandler extends SQLiteOpenHelper{
 
 
     // Game Tables
-    private static final String TABLE_LLAMA = "llama";
-    private static final String TABLE_LIVESTOCK = "livestock";
+
+    private static final String TABLE_USER = "user";
+    private static final String TABLE_SHOP = "shop";
     private static final String TABLE_PREDATOR = "predator";
-    private static final String TABLE_OWNED_LLAMA = "owned_llama";
-    private static final String TABLE_OWNED_LIVESTOCK = "owned_livestock";
+    private static final String TABLE_OWNED = "owned";
 
-    // Llama table fields
-    private static final String LLAMA_SPECIES = "species";
-    private static final String LLAMA_TYPE = "type";
-    private static final String LLAMA_SKILL = "skill";
-    private static final String LLAMA_PRICE = "price";
 
-    // Livestock table fields
-    private static final String LIVE_SPECIES = "species";
-    private static final String LIVE_PRICE = "price";
+    // User table fields
+    private static final String USER_NAME = "name";
+    private static final String USER_MONEY = "money";
+
+    // Shop table fields
+    private static final String SHOP_SPECIES = "species";   //llama, goat, sheep, etc.
+    private static final String SHOP_TYPE = "type";         //llama, livestock, item
+    private static final String SHOP_SKILL = "skill";       //for llamas & items only
+    private static final String SHOP_HP = "hp";             //for llamas & items
+    private static final String SHOP_PRICE = "price";
 
     // Predator table fields
     private static final String PRED_SPECIES = "species";
     private static final String PRED_SCARE = "scare_reward";
     private static final String PRED_DEFEAT = "defeat_reward";
 
-    // Owned Llama fields
-    private static final String OLLAMA_ID = "id";
-    private static final String OLLAMA_NAME = "name";
-    private static final String OLLAMA_SPECIES = "species";
-    private static final String OLLAMA_TYPE = "type";
-    private static final String OLLAMA_SKILL = "skill";
-    private static final String OLLAMA_PRICE = "price";
-
-    // Owned Livestock table fields
-    private static final String OLIVE_ID = "id";
-    private static final String OLIVE_SPECIES = "species";
+    // Owned table fields
+    private static final String OWNED_ID = "id";            //unique id
+    private static final String OWNED_NAME = "name";        //for only llama/alpaca
+    private static final String OWNED_SPECIES = "species";  //llama,sheep,etc
+    private static final String OWNED_TYPE = "type";        //llama, livestock, item
+    private static final String OWNED_SKILL = "skill";      //for llamas & items
+    private static final String OWNED_HP = "hp";             //for llamas & items
 
 
 
-    // create Llama table
-    private static final String CREATE_TABLE_LLAMA = "CREATE TABLE " + TABLE_LLAMA +
+    private static final String CREATE_TABLE_USER = "CREATE TABLE " + TABLE_SHOP +
             "(" +
-            LLAMA_SPECIES + " TEXT," +
-            LLAMA_TYPE + " TEXT," +
-            LLAMA_SKILL + " TEXT," +
-            LLAMA_PRICE + " INT," +
+            USER_NAME + " TEXT," +
+            USER_MONEY + " INT," +
             ")";
 
-    // create Livestock table
-    private static final String CREATE_TABLE_LIVESTOCK = "CREATE TABLE " + TABLE_LIVESTOCK +
+    private static final String CREATE_TABLE_SHOP = "CREATE TABLE " + TABLE_SHOP +
             "(" +
-            LIVE_SPECIES + " TEXT," +
-            LIVE_PRICE + " INT," +
+            SHOP_SPECIES + " TEXT," +
+            SHOP_TYPE + " TEXT," +
+            SHOP_SKILL + " TEXT," +
+            SHOP_HP + " INT," +
+            SHOP_PRICE + " INT," +
             ")";
 
     // create Predator table
@@ -73,44 +70,36 @@ public class DBHandler extends SQLiteOpenHelper{
             PRED_DEFEAT + " INT," +
             ")";
 
-    // create Owned Llama table
-    private static final String CREATE_TABLE_OWNED_LLAMA = "CREATE TABLE " + TABLE_OWNED_LLAMA +
+    // create Owned  table
+    private static final String CREATE_TABLE_OWNED = "CREATE TABLE " + TABLE_OWNED +
             "(" +
-            OLLAMA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            OLLAMA_NAME + " TEXT," +
-            OLLAMA_SPECIES + " TEXT," +
-            OLLAMA_TYPE + " TEXT," +
-            OLLAMA_SKILL + " TEXT," +
-            OLLAMA_PRICE + " INT," +
+            OWNED_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            OWNED_NAME + " TEXT," +
+            OWNED_SPECIES + " TEXT," +
+            OWNED_TYPE + " TEXT," +
+            OWNED_SKILL + " TEXT," +
+            OWNED_HP + " INT," +
             ")";
 
-    // create Owned Livestock table
-    private static final String CREATE_TABLE_OWNED_LIVESTOCK = "CREATE TABLE " + TABLE_OWNED_LIVESTOCK +
-            "(" +
-            OLIVE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            OLIVE_SPECIES + " TEXT," +
-            ")";
 
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE_LLAMA);
-        db.execSQL(CREATE_TABLE_LIVESTOCK);
+        db.execSQL(CREATE_TABLE_USER);
+        db.execSQL(CREATE_TABLE_SHOP);
         db.execSQL(CREATE_TABLE_PREDATOR);
-        db.execSQL(CREATE_TABLE_OWNED_LLAMA);
-        db.execSQL(CREATE_TABLE_OWNED_LIVESTOCK);
+        db.execSQL(CREATE_TABLE_OWNED);
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         if(oldVersion != newVersion){
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_LLAMA);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_LIVESTOCK);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SHOP);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_PREDATOR);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_OWNED_LLAMA);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_OWNED_LIVESTOCK);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_OWNED);
             onCreate(db);
         }
     }

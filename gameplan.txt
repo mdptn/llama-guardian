@@ -19,6 +19,7 @@ Close the app and check back later.
 Come back and check the app and see if your llama/alpaca was able to ward off any predators.
 - earn currency for every predator that was warded off
 - lose some livestock (or potentially your llama!) if the warding was unsuccessful.
+- POSSIBLY: give llamas HP so that you can buy food/meds/etc
 
 Use earned currency to buy more livestock and better llamas/alpacas with different specs and cute clothes. Expand your field and strengthen your fences too.
 
