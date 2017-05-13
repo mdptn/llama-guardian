@@ -1,4 +1,4 @@
-package mdptn.llamaguardian;
+package mdptn.llamaguardian.DBclasses;
 
 /**
  * Created by Megan on 5/12/2017.
@@ -20,11 +20,11 @@ public class User {
         this.money = money;
     }
 
-    public String getName(String name){
+    public String getName(){
         return name;
     }
 
-    public int getMoney(int money){
+    public int getMoney(){
         return money;
     }
 
